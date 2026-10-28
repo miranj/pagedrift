@@ -18,18 +18,20 @@ locally from a git checkout.
 ## Usage
 
 Run in the project's root. Nothing needs to be added to the project.
+PageDrift isn't on npm yet, so it's run from GitHub, which needs access to
+the repo.
 
     # Once: install the browser
-    $ npx pagedrift install
+    $ npx github:miranj/pagedrift install
 
     # Compare the current checkout against dev
-    $ npx pagedrift dev
+    $ npx github:miranj/pagedrift dev
 
     # Compare two tags; other options go to `playwright test`
-    $ npx pagedrift v5.9.4..v5.9.5 -g programmes --project=desktop
+    $ npx github:miranj/pagedrift v5.9.4..v5.9.5 -g programmes --project=desktop
 
     # View the differences
-    $ npx pagedrift report
+    $ npx github:miranj/pagedrift report
 
 As with `git diff`, `<baseline>..<compare>` compares the two refs directly,
 and an omitted `<compare>` means the current checkout. The project is
@@ -37,14 +39,15 @@ returned to the original checkout at the end, even if the run is stopped
 with Ctrl+C.
 
 PageDrift can also be installed in a project with
-`npm install --save-dev pagedrift`.
+`npm install --save-dev github:miranj/pagedrift`.
 
 ### How pages are picked
 
 A few pages are picked at random from each sitemap listed in
 `/sitemap.xml` (only the first file of paginated sitemaps), plus `/` and
 `/404`. Each run prints its seed: pass it with `--seed=<n>` to test the same
-pages again. `npx pagedrift uris` prints the pages a run would test.
+pages again. `npx github:miranj/pagedrift uris` prints the pages a run
+would test.
 
 ### Baselines
 
@@ -68,7 +71,8 @@ By default, the site URL is `PRIMARY_SITE_URL` from the project's `.env`
 `?nocache=1` to skip the site's full-page cache.
 
 To change any setting, add a `pagedrift.config.mjs` to the project's root.
-`npx pagedrift init` creates one listing every setting, commented out.
+`npx github:miranj/pagedrift init` creates one listing every setting,
+commented out.
 See [`pagedrift.config.default.mjs`](pagedrift.config.default.mjs) for all
 of them with their defaults, eg.
 
