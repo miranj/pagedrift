@@ -1,0 +1,41 @@
+{
+  "name": "pagedrift",
+  "version": "0.1.0",
+  "description": "Regression testing by comparing full-page screenshots across two revisions (Playwright on Node.js)",
+  "license": "MIT",
+  "author": "Miranj Design LLP",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miranj/pagedrift.git"
+  },
+  "keywords": [
+    "visual regression",
+    "screenshot",
+    "playwright",
+    "sitemap",
+    "craft cms"
+  ],
+  "type": "module",
+  "bin": {
+    "pagedrift": "bin/pagedrift.mjs"
+  },
+  "files": [
+    "bin",
+    "src",
+    "pagedrift.config.default.mjs",
+    "CHANGELOG.md"
+  ],
+  "engines": {
+    "node": ">=20.12"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "prettier": {
+    "singleQuote": true
+  },
+  "dependencies": {
+    "@playwright/test": "1.64.1",
+    "fast-xml-parser": "^5.11.2"
+  }
+}
