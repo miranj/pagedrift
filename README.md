@@ -3,7 +3,7 @@
 Regression testing by comparing full-page screenshots across two revisions
 (Playwright on Node.js).
 
-pagedrift samples pages from a site's sitemaps, screenshots them at two git
+PageDrift samples pages from a site's sitemaps, screenshots them at two git
 refs of the project, and reports the pages that look different. It's built
 for Craft CMS sites, but works with any site that has a sitemap and runs
 locally from a git checkout.
@@ -36,7 +36,7 @@ and an omitted `<compare>` means the current checkout. The project is
 returned to the original checkout at the end, even if the run is stopped
 with Ctrl+C.
 
-pagedrift can also be installed in a project with
+PageDrift can also be installed in a project with
 `npm install --save-dev pagedrift`.
 
 ### How pages are picked
@@ -53,7 +53,7 @@ capture pages that are new. Add `--fresh` to capture them all again, eg.
 after content changes.
 
 Both refs share one database, so differences may come from config or
-migrations as well as templates. pagedrift warns when `composer.lock`,
+migrations as well as templates. PageDrift warns when `composer.lock`,
 `config/project` or `migrations` differ between the refs.
 
 ### Generated files
@@ -89,5 +89,6 @@ export default {
     # Run the CLI from a checkout, in a project's root
     $ node path/to/pagedrift/bin/pagedrift.mjs dev
 
-Changes are recorded in [CHANGELOG.md](CHANGELOG.md), following
-[Semantic Versioning](https://semver.org).
+---
+
+Changes are recorded in [CHANGELOG.md](CHANGELOG.md).
