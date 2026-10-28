@@ -1,2 +1,3 @@
-# pagedrift
-Regression testing by comparing full-page screenshots across two revisions (Playwright on Node.js)
+# PageDrift
+
+Regression testing by comparing full-page screenshots across two revisions (Playwright on Node.js).
