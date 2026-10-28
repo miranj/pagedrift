@@ -23,7 +23,7 @@ Compares full-page screenshots of a locally running site between two git refs.
 Usage:
   pagedrift <baseline>[..<compare>] [options] [playwright options...]
       Captures the site at <baseline>, then compares the site at <compare>
-      (default: the current checkout) against it. Run in the project's root,
+      (default: the current checkout) against it. Run in the project’s root,
       with the site running throughout.
   pagedrift uris [--seed=<n>]
       Prints the URIs that would be tested at the current checkout.
@@ -135,7 +135,7 @@ async function run() {
 }
 
 /**
- * Splits the arguments into the command (or range), pagedrift's own
+ * Splits the arguments into the command (or range), pagedrift’s own
  * options, and the rest, which are passed to Playwright. The command or
  * range comes first, as Playwright options may take values.
  */

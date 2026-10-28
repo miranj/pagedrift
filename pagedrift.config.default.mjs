@@ -1,6 +1,6 @@
 /**
  * Every pagedrift setting, with its default value. Override any of them in
- * a project's pagedrift.config.mjs (`npx pagedrift init` creates one).
+ * a project’s pagedrift.config.mjs (`npx pagedrift init` creates one).
  * Settings merge one level deep, eg. `viewports` replaces the defaults.
  */
 

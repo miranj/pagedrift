@@ -18,7 +18,7 @@ export async function preparePage(page) {
         .forEach((el) => window.lazySizes.loader.unveil(el));
     }
 
-    // Instant, not smooth: interrupted smooth scrolls can leave Chromium's
+    // Instant, not smooth: interrupted smooth scrolls can leave Chromium’s
     // compositor slightly offset, which shifts fixed elements in the
     // full-page screenshot
     for (

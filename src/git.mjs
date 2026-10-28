@@ -1,5 +1,5 @@
 /**
- * Git operations on the project's repo.
+ * Git operations on the project’s repo.
  */
 
 import { execFileSync } from 'node:child_process';

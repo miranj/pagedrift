@@ -2,8 +2,8 @@
  * Builds the list of pages to test: a few randomly picked URIs from every
  * sitemap, plus the fixed URIs in the `uris` setting.
  *
- * A URI here is whatever follows the base URL in a page's URL, with no
- * assumption about where the site's root is. Pages are requested at
+ * A URI here is whatever follows the base URL in a page’s URL, with no
+ * assumption about where the site’s root is. Pages are requested at
  * base URL + URI.
  */
 
@@ -101,7 +101,7 @@ export function firstPages(sitemapUrls) {
 }
 
 const xmlParser = new XMLParser({
-  // Decode numeric character references (eg. &#38;) too, not only XML's
+  // Decode numeric character references (eg. &#38;) too, not only XML’s
   // named entities
   htmlEntities: true,
   // Keep values as strings, even ones that look like numbers
@@ -121,7 +121,7 @@ function locs(entries = []) {
  * Strips the base URL from a sitemap URL, leaving the URI.
  */
 export function toUri(url, baseUrl) {
-  // The site's root URL may be listed without its trailing slash
+  // The site’s root URL may be listed without its trailing slash
   if (url + '/' === baseUrl) {
     return '';
   }

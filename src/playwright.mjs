@@ -16,9 +16,9 @@ export const suiteConfig = join(suiteDir, 'playwright.config.mjs');
 
 /**
  * Writes the test spec into a directory of the project, so that test
- * locations show as paths in the project rather than in pagedrift's
- * install location (eg. npx's cache). Its imports still point to
- * pagedrift's modules.
+ * locations show as paths in the project rather than in pagedrift’s
+ * install location (eg. npx’s cache). Its imports still point to
+ * pagedrift’s modules.
  */
 export function writeSpec(dir) {
   const specUrl = pathToFileURL(join(suiteDir, specName));

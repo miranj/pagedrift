@@ -2,13 +2,13 @@
  * Visual regression check between two git refs of a project whose site is
  * running locally: captures baseline screenshots at <baseline>, then
  * compares the site at <compare> (the current checkout by default) against
- * them. URIs are collected from the compared ref's sitemap.
+ * them. URIs are collected from the compared ref’s sitemap.
  *
  * As with `git diff`, <baseline>..<compare> compares the two refs directly,
  * and an omitted <compare> means the current checkout.
  *
  * Baseline screenshots are kept per baseline commit and reused by later
- * runs, which only capture pages that don't have one yet. `fresh` discards
+ * runs, which only capture pages that don’t have one yet. `fresh` discards
  * them and captures all pages again, eg. after content changes.
  *
  * Refs are checked out in place, so tracked files must have no changes, and
@@ -73,7 +73,7 @@ export async function regress({
   );
   if (siteChanges.length) {
     warn(
-      `${siteChanges.join(', ')} differ between ${baselineRef} and ${compareLabel}, so differences may come from the site's dependencies, config or database rather than templates.`,
+      `${siteChanges.join(', ')} differ between ${baselineRef} and ${compareLabel}, so differences may come from the site’s dependencies, config or database rather than templates.`,
     );
   }
 
@@ -106,7 +106,7 @@ export async function regress({
 
   function checkout(ref, sha) {
     say(`Checking out ${ref}`);
-    // By SHA, so a branch name like `dev` doesn't attach to that branch
+    // By SHA, so a branch name like `dev` doesn’t attach to that branch
     git.checkout(sha);
     onOriginal = false;
     runAfterCheckout();

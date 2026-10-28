@@ -3,22 +3,22 @@
 Regression testing by comparing full-page screenshots across two revisions
 (Playwright on Node.js).
 
-PageDrift samples pages from a site's sitemaps, screenshots them at two git
-refs of the project, and reports the pages that look different. It's built
+PageDrift samples pages from a site’s sitemaps, screenshots them at two git
+refs of the project, and reports the pages that look different. It’s built
 for Craft CMS sites, but works with any site that has a sitemap and runs
 locally from a git checkout.
 
 ## Requirements
 
 - Node.js 20.12 or later
-- The site running locally (on any server, eg. DDEV), from the project's
+- The site running locally (on any server, eg. DDEV), from the project’s
   git checkout
 - No uncommitted changes to tracked files, as refs are checked out in place
 
 ## Usage
 
-Run in the project's root. Nothing needs to be added to the project.
-PageDrift isn't on npm yet, so it's run from GitHub, which needs access to
+Run in the project’s root. Nothing needs to be added to the project.
+PageDrift isn’t on npm yet, so it’s run from GitHub, which needs access to
 the repo.
 
     # Once: install the browser
@@ -66,11 +66,11 @@ project. It ignores itself in git, so needs no `.gitignore` entry.
 
 ## Configuration
 
-By default, the site URL is `PRIMARY_SITE_URL` from the project's `.env`
+By default, the site URL is `PRIMARY_SITE_URL` from the project’s `.env`
 (`baseUrl` or `baseUrlEnvVar` change this), and every page URL gets
-`?nocache=1` to skip the site's full-page cache.
+`?nocache=1` to skip the site’s full-page cache.
 
-To change any setting, add a `pagedrift.config.mjs` to the project's root.
+To change any setting, add a `pagedrift.config.mjs` to the project’s root.
 `npx github:miranj/pagedrift init` creates one listing every setting,
 commented out.
 See [`pagedrift.config.default.mjs`](pagedrift.config.default.mjs) for all
@@ -90,7 +90,7 @@ export default {
     $ npm install
     $ npm test
 
-    # Run the CLI from a checkout, in a project's root
+    # Run the CLI from a checkout, in a project’s root
     $ node path/to/pagedrift/bin/pagedrift.mjs dev
 
 ---

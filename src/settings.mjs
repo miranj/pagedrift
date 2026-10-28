@@ -1,6 +1,6 @@
 /**
  * Loads the settings for a project: the defaults in
- * pagedrift.config.default.mjs, overridden by the project's config file.
+ * pagedrift.config.default.mjs, overridden by the project’s config file.
  */
 
 import { existsSync, readFileSync } from 'node:fs';
@@ -13,7 +13,7 @@ import defaults from '../pagedrift.config.default.mjs';
 const configFileNames = ['pagedrift.config.mjs', 'pagedrift.config.js'];
 
 /**
- * The project's config file, or null if it has none.
+ * The project’s config file, or null if it has none.
  */
 export function findConfigFile(projectDir) {
   return (
@@ -50,7 +50,7 @@ export async function loadSettings(projectDir, configFile) {
 
 /**
  * Root URL of the site, with a trailing slash: the baseUrl setting, or else
- * the baseUrlEnvVar variable from the environment or the project's .env.
+ * the baseUrlEnvVar variable from the environment or the project’s .env.
  */
 export function resolveBaseUrl(settings, projectDir) {
   const { baseUrlEnvVar } = settings;
@@ -69,7 +69,7 @@ export function resolveBaseUrl(settings, projectDir) {
 }
 
 /**
- * The values in a .env file, expanding ${VAR} references the way Craft's
+ * The values in a .env file, expanding ${VAR} references the way Craft’s
  * phpdotenv does.
  */
 function readEnvFile(file) {

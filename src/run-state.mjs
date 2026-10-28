@@ -1,12 +1,12 @@
 /**
  * State of a run, shared between the CLI and the processes it starts
- * (Playwright's runner and its workers) through a JSON file, whose path is
+ * (Playwright’s runner and its workers) through a JSON file, whose path is
  * passed in an environment variable.
  *
  * State: {
  *   projectDir,         root of the project being tested
  *   testDir,            where the CLI has written the test spec
- *   configFile,         copy of the project's config file, or null
+ *   configFile,         copy of the project’s config file, or null
  *   baseUrl,            root URL of the site, with a trailing slash
  *   uris,               URIs to test
  *   snapshotDir,        where baseline screenshots are kept
@@ -26,7 +26,7 @@ export function writeRunState(file, state) {
 }
 
 /**
- * The state of the current run and the project's settings.
+ * The state of the current run and the project’s settings.
  */
 export async function loadRun() {
   const file = process.env[runStateEnvVar];
