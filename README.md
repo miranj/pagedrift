@@ -63,8 +63,9 @@ project. It ignores itself in git, so needs no `.gitignore` entry.
 
 ## Configuration
 
-By default, the site URL is `PRIMARY_SITE_URL` from the project's `.env`,
-and every page URL gets `?nocache=1` to skip the site's full-page cache.
+By default, the site URL is `PRIMARY_SITE_URL` from the project's `.env`
+(`baseUrl` or `baseUrlEnvVar` change this), and every page URL gets
+`?nocache=1` to skip the site's full-page cache.
 
 To change any setting, add a `pagedrift.config.mjs` to the project's root.
 `npx pagedrift init` creates one listing every setting, commented out.

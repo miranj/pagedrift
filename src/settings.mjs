@@ -50,16 +50,18 @@ export async function loadSettings(projectDir, configFile) {
 
 /**
  * Root URL of the site, with a trailing slash: the baseUrl setting, or else
- * PRIMARY_SITE_URL from the environment or the project's .env.
+ * the baseUrlEnvVar variable from the environment or the project's .env.
  */
 export function resolveBaseUrl(settings, projectDir) {
+  const { baseUrlEnvVar } = settings;
   const url =
     settings.baseUrl ||
-    process.env.PRIMARY_SITE_URL ||
-    readEnvFile(join(projectDir, '.env')).PRIMARY_SITE_URL;
+    (baseUrlEnvVar &&
+      (process.env[baseUrlEnvVar] ||
+        readEnvFile(join(projectDir, '.env'))[baseUrlEnvVar]));
   if (!url) {
     throw new Error(
-      'Could not determine the site URL. Set PRIMARY_SITE_URL in .env, or baseUrl in pagedrift.config.mjs.',
+      `Could not determine the site URL. Set ${baseUrlEnvVar ? `${baseUrlEnvVar} in .env, or ` : ''}baseUrl in pagedrift.config.mjs.`,
     );
   }
 

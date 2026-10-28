@@ -5,8 +5,11 @@
  */
 
 export default {
-  /** Root URL of the local site. null: PRIMARY_SITE_URL from .env */
+  /** Root URL of the local site. null: from the baseUrlEnvVar variable */
   baseUrl: null,
+
+  /** Environment (or .env) variable with the site URL, if baseUrl is null */
+  baseUrlEnvVar: 'PRIMARY_SITE_URL',
 
   /** Query string added to page URLs, eg. to skip the full-page cache */
   cacheBustQuery: 'nocache=1',

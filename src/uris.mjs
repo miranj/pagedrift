@@ -128,7 +128,7 @@ export function toUri(url, baseUrl) {
 
   if (!url.startsWith(baseUrl)) {
     throw new Error(
-      `Sitemap URL [${url}] is not under the site URL [${baseUrl}]. Set PRIMARY_SITE_URL in .env (or baseUrl in pagedrift.config.mjs) to the URL the site generates its links with.`,
+      `Sitemap URL [${url}] is not under the site URL [${baseUrl}]. Set the site URL (baseUrl in pagedrift.config.mjs, or the .env variable in baseUrlEnvVar) to the URL the site generates its links with.`,
     );
   }
 
