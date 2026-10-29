@@ -4,7 +4,7 @@
  * intersection-triggered content (Alpine x-intersect) renders.
  */
 export async function preparePage(page) {
-  await page.waitForLoadState('networkidle');
+  await waitForNetworkIdle(page);
 
   await page.evaluate(async () => {
     const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -55,5 +55,16 @@ export async function preparePage(page) {
     }
   });
 
-  await page.waitForLoadState('networkidle');
+  await waitForNetworkIdle(page);
+}
+
+/**
+ * Waits for the network to go quiet, but not forever: some embeds (eg.
+ * Cloudflare Turnstile) keep making requests for as long as the page is
+ * open.
+ */
+async function waitForNetworkIdle(page) {
+  await page
+    .waitForLoadState('networkidle', { timeout: 10_000 })
+    .catch(() => {});
 }
