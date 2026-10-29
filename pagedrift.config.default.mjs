@@ -33,6 +33,9 @@ export default {
    * Viewports by name, as Playwright browser context options. Each is a
    * Playwright project, eg. --project=desktop. No `isMobile`: it resizes
    * the viewport for full-page screenshots, retriggering x-intersect.
+   * Pages see regular Chrome’s user agent, not HeadlessChrome’s (which
+   * makes embeds like Vimeo show a Cloudflare challenge); set `userAgent`
+   * on a viewport to override it.
    */
   viewports: {
     mobile: { viewport: { width: 375, height: 812 }, hasTouch: true },

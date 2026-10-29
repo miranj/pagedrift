@@ -17,6 +17,18 @@ const screenshotStyle = [
   .filter(Boolean)
   .join('\n');
 
+// Headless Chromium says so in its user agent, and some embeds (eg. Vimeo)
+// then load a Cloudflare challenge in place of their content. That keeps
+// the network busy and changes how the page looks, so pass as regular
+// Chrome, unless the viewport sets its own user agent.
+let chromeUserAgent;
+test.use({
+  userAgent: async ({ browser }, use, testInfo) => {
+    chromeUserAgent ??= await headedUserAgent(browser);
+    await use(testInfo.project.use.userAgent ?? chromeUserAgent);
+  },
+});
+
 for (const uri of state.uris) {
   test(uri || '/', async ({ page }, testInfo) => {
     // One snapshot file per URI, nested by path segment
@@ -56,4 +68,12 @@ function snapshotName(uri) {
   return segments.length
     ? [...segments.slice(0, -1), segments.at(-1) + '.png']
     : ['index.png'];
+}
+
+async function headedUserAgent(browser) {
+  const page = await browser.newPage();
+  const userAgent = await page.evaluate(() => navigator.userAgent);
+  await page.close();
+
+  return userAgent.replace('HeadlessChrome/', 'Chrome/');
 }
