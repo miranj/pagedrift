@@ -46,6 +46,31 @@ export function runPlaywright(args, { cwd, env = {} } = {}) {
 }
 
 /**
+ * Installs the Chromium build this Playwright version needs.
+ *
+ * Playwright warns against `npx playwright install` whenever its CLI runs
+ * from npx’s cache, as it always does under `npx pagedrift`, though the
+ * browser it installs is the one pagedrift needs. So the CLI is loaded
+ * from an inline script, with a script path that doesn’t trigger it.
+ */
+export function installBrowser() {
+  const cli = import.meta.resolve('@playwright/test/cli');
+  const { status } = spawnSync(
+    process.execPath,
+    [
+      '--input-type=module',
+      '--eval',
+      `process.argv.splice(1, 0, 'playwright'); await import(${JSON.stringify(cli)});`,
+      'install',
+      'chromium',
+    ],
+    { stdio: 'inherit' },
+  );
+
+  return status ?? 1;
+}
+
+/**
  * Whether the Chromium build this Playwright version needs is installed.
  */
 export function isBrowserInstalled() {

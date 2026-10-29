@@ -3,7 +3,11 @@
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { die, say } from '../src/log.mjs';
-import { isBrowserInstalled, runPlaywright } from '../src/playwright.mjs';
+import {
+  installBrowser,
+  isBrowserInstalled,
+  runPlaywright,
+} from '../src/playwright.mjs';
 import { regress } from '../src/regress.mjs';
 import {
   findConfigFile,
@@ -115,7 +119,7 @@ async function run() {
     }
 
     case 'install':
-      return runPlaywright(['install', 'chromium']);
+      return installBrowser();
 
     default:
       if (!isBrowserInstalled()) {
