@@ -18,8 +18,7 @@ locally from a git checkout.
 ## Usage
 
 Run in the project’s root. Nothing needs to be added to the project.
-PageDrift isn’t on npm yet, so it’s run from GitHub, which needs access to
-the repo.
+PageDrift isn’t on npm yet, so it’s run from GitHub.
 
     # Once: install the browser
     $ npx github:miranj/pagedrift install
