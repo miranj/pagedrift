@@ -11,8 +11,8 @@ export default {
   /** Environment (or .env) variable with the site URL, if baseUrl is null */
   baseUrlEnvVar: 'PRIMARY_SITE_URL',
 
-  /** Query string added to page URLs, eg. to skip the full-page cache */
-  cacheBustQuery: 'nocache=1',
+  /** Query string added to page URLs, eg. 'nocache=1' to skip a cache */
+  cacheBustQuery: null,
 
   /** Accept self-signed HTTPS certificates */
   ignoreHTTPSErrors: true,
